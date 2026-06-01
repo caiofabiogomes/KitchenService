@@ -42,11 +42,6 @@ namespace KitchenService.API.Controllers
             _logger.LogInformation("GetOrders endpoint called");
             var orders = await _repository.GetPendingOrdersAsync();
 
-            if (orders == null || !orders.Any())
-            {
-                return NotFound(new { Message = "Nenhuma ordem pendente encontrada." });
-            }
-
             return Ok(orders);
         }
 
